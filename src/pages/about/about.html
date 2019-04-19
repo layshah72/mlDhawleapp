@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+        <button ion-button menuToggle start >
+          <ion-icon name="menu"></ion-icon>
+          </button> 
+      </ion-buttons>
+    <ion-title right>
+      Schedule
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar>
+              <ion-searchbar (ionChange)="applySearch($event)" placeholder="Search by Doctor Name"></ion-searchbar>
+  </ion-toolbar>
+  <ion-item>
+    <ion-label>Speciality</ion-label>
+    <ion-select placeholder="Select One"  (ionChange)="applySpecialitySearch($event)" >
+      <ion-option *ngFor="let service of services" value="{{service.value}}">{{service.lable}}</ion-option>
+
+
+    </ion-select>
+  </ion-item>
+  
+
+      <ion-list *ngFor="let doctor of doctorsSearched">
+      
+ 
+                  <ion-card class="ion-card-discover" > 
+                    <ion-card-header class="ion-title-discover">
+                      {{doctor.name}}-{{doctor.speciality}}
+                    </ion-card-header>
+                    <ion-card-content class="ion-title-discover">
+                      {{doctor.day}}
+                      {{doctor.time}}
+                      <button ion-button class="round" style="float: right;font-size:10px"color="primary" right (click)="navigate(doctor.id)">Book Appointment</button>
+                    </ion-card-content>
+
+
+
+
+                  </ion-card>
+
+ 
+       
+      </ion-list>
+
+
+
+
+    </ion-content>

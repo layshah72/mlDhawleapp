@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+        <button ion-button menuToggle start >
+          <ion-icon name="menu"></ion-icon>
+          </button> 
+      </ion-buttons>
+    <ion-title right>
+      Feed Back
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="logForm()">
+    <ion-list>
+
+      <ion-grid>
+        <ion-row *ngFor="let feedbackLine of feedBackLines">
+          <ion-col>
+            <ion-label>{{feedbackLine.lable}}</ion-label>
+          </ion-col>
+          <ion-col padding>
+          <div>
+            <rating [name1]=feedbackLine.propertyName (ratingChange)="save($event)" ></rating>
+          </div>
+          </ion-col>
+        </ion-row>
+        
+      </ion-grid>
+      
+      
+    <ion-item>
+       <ion-label floating>Something that you really appreciate our hospital</ion-label>
+      <ion-input  type="text" name="appreciate" [(ngModel)]="appreciate"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Something that you do not like about our hospital</ion-label>
+      <ion-input  type="text" name="notlike" [(ngModel)]="notlike"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Suggetion For Hospital administration</ion-label>
+      <ion-input placeholder="" type="text" name="suggestion" [(ngModel)]="suggestion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>What facilities would you further want to be provided in this hospital</ion-label>
+      <ion-input placeholder="" type="text" name="extraFacilities" [(ngModel)]="extraFacilities"></ion-input>
+    </ion-item>
+    </ion-list>
+    <button ion-button type="submit" block>Save Feedback</button>
+  </form>
+</ion-content>
+

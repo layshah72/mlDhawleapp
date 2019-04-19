@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+        <button ion-button menuToggle start >
+          <ion-icon name="menu"></ion-icon>
+          </button>
+           
+      </ion-buttons>
+    <ion-title right>Services</ion-title>
+     <ion-buttons end>
+        
+          <button ion-button tappable  (click)="news($event)" ><ion-icon name="notifications" right></ion-icon></button> 
+      </ion-buttons>   
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content padding >
+  <ion-card  *ngFor="let service of services" (click)="navigate(service.value)" > 
+                    <img src="{{service.image}}" class="imageStyle"/>
+                   
+                    <ion-card-header>
+                        {{service.lable}}
+                  </ion-card-header>
+                  <ion-card-content>
+                    {{service.Description}}
+                  </ion-card-content>
+  </ion-card>             
+
+</ion-content>
+
+
