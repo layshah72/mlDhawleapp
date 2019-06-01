@@ -17,7 +17,7 @@ import {
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-contact-us',
   templateUrl: 'contact-us.html',

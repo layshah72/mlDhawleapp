@@ -42,6 +42,10 @@
             </ion-row> 
 
             </ion-toolbar>
+            <button ion-item (click)=appointment() *ngIf="loginDisable">
+                <ion-icon name="contact" item-left></ion-icon>
+                View My Appointments
+            </button>
             <button ion-item (click)=login() *ngIf="!loginDisable">
                 <ion-icon name="contact" item-left></ion-icon>
                 Login/Register

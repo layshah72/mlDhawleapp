@@ -30,12 +30,12 @@
  
                   <ion-card class="ion-card-discover" > 
                     <ion-card-header class="ion-title-discover">
-                      {{doctor.name}}-{{doctor.speciality}}
+                      {{doctor.name}}-{{doctor.department.value}}
                     </ion-card-header>
                     <ion-card-content class="ion-title-discover">
                       {{doctor.day}}
                       {{doctor.time}}
-                      <button ion-button class="round" style="float: right;font-size:10px"color="primary" right (click)="navigate(doctor.id)">Book Appointment</button>
+                      <button ion-button class="round" style="float: right;font-size:10px"color="primary" right (click)="navigate(doctor)">Book Appointment</button>
                     </ion-card-content>
 
 

@@ -5,11 +5,14 @@ import { HttpModule } from '@angular/http';
 import { HTTP } from '@ionic-native/http';
 import { AngularFireModule } from 'angularfire2';
 import { MyApp } from './app.component';
+import { MenuController,NavController } from 'ionic-angular';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { AppointmentPage } from '../pages/appointment/appointment';
+import {ViewAppointmentsPage} from "../pages/view-appointments/view-appointments";
 import { ContactUsPage } from '../pages/contact-us/contact-us';
 import { RatingComponent} from '../components/rating/rating';
 import {LoginPage} from "../pages/login/login";
@@ -50,6 +53,8 @@ var firebaseConfig = {
     RegisterPage,
     NewsPage,
     VerifyPage,
+    AppointmentPage,
+    ViewAppointmentsPage,
     NewsDtlsPage,
     RatingComponent
   ],
@@ -75,6 +80,8 @@ var firebaseConfig = {
     RegisterPage,
     NewsPage,
     VerifyPage,
+    AppointmentPage,
+    ViewAppointmentsPage,
     NewsDtlsPage,
     RatingComponent
   ],

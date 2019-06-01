@@ -29,11 +29,11 @@ export class ContactPage {
       },
       {
         propertyName:'waiting',
-        lable:'Waiting Room Servcies'
+        lable:'Waiting Room Services'
       },
       {
         propertyName:'office',
-        lable:'Office Servcies'
+        lable:'Office Services'
       },
       {
         propertyName:'emergency',
@@ -79,30 +79,34 @@ export class ContactPage {
       if(Object.keys(this.feedBackjson).length>=this.feedBackLines.length){
 
           this.storage.get('userId').then((val2) => {
-            alert(val2);
-            let body = {'userId':val2,
-          'feedback':this.feedBackjson};
+            if(val2!=null){
+                let body = {'userId':val2,
+              'feedback':this.feedBackjson};
 
-            
-            let headers = {
-                "Content-Type": "application/json"
-            };
-            this.http.setDataSerializer('json');
-            this.http.post('http://35.154.46.137:7001/Feedback/Add',body,headers)
-              .then(data => {
-
-                alert("Thanks for your Valuable Feedback");
                 
+                let headers = {
+                    "Content-Type": "application/json"
+                };
+                this.http.setDataSerializer('json');
+                this.http.post('http://35.154.46.137:7001/Feedback/Add',body,headers)
+                  .then(data => {
 
-              })
-              .catch(error => {
+                    alert("Thanks for your Valuable Feedback");
+                    
 
-               alert(error);
-                alert(error.error); 
+                  })
+                  .catch(error => {
 
+                   alert(error);
+                    alert(error.error); 
+
+                  });
+
+                }else{
+                  alert('Please Login before sending Feedback');
+                }  
               });
-          });
-          
+
           
         /*  
           

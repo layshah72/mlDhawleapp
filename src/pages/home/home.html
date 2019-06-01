@@ -16,7 +16,89 @@
 </ion-header>
 
 <ion-content padding >
-  <ion-card  *ngFor="let service of services" (click)="navigate(service.value)" > 
+  <ion-grid>
+    <ion-row  wrap responsive-sm align-items-center  >
+        <ion-col size="4"  size-sm style="text-align:center"  (click)="navigate('PHYSICIAN')">
+                PHYSICIAN <br />
+                <img src="../assets/icon/heartBeat.png"/>
+
+                            
+        </ion-col>
+        <ion-col size="4"  size-sm style="text-align:center"  (click)="navigate('PAEDIATRICS (CHILD SPECIALISTS)')">
+                PAEDIATRICS <br />
+                <img src="../assets/icon/pediatric.png"/>
+
+                           
+        </ion-col>
+        <ion-col size="4"  size-sm style="text-align:center"  (click)="navigate('GENERAL SURGERY')">
+                
+                GENERAL SURGERY <br />
+                <img src="../assets/icon/surgery.png"/>
+
+                          
+        </ion-col>
+      
+    </ion-row>
+    <ion-row  wrap responsive-sm align-items-center  >
+        <ion-col size="4"  size-sm style="text-align:center"  (click)="navigate('PHYSIOTHERAPY')">
+                PHYSIOTHERAPY  <br />
+                <img src="../assets/icon/Healthcare-Therapy-icon.png"/>
+                
+                           
+        </ion-col>
+        <ion-col size="4"  size-sm style="text-align:center"  (click)="navigate('Pathology')">
+                Pathology <br />
+                <img src="../assets/icon/pethology.png"/>
+
+                           
+        </ion-col>
+        <ion-col size="4"  size-sm style="text-align:center"  (click)="navigate('GYNAEC & OBST')">
+                GYNAEC & OBST <br />
+                <img src="../assets/icon/gynac.png"/>
+
+                           
+        </ion-col>
+      
+    </ion-row>
+    <ion-row  wrap responsive-sm align-items-center  >
+        <ion-col size="4"  size-sm style="text-align:center"  (click)="navigate('DENTAL')">
+                DENTAL  <br />
+                <img src="../assets/icon/dental.png" />
+                           
+        </ion-col>
+        <ion-col size="4"  size-sm style="text-align:center"  (click)="navigate('OPTHALMOLOGY')">
+                OPTHALMOLOGY <br />
+                <img src="../assets/icon/Eye-icon.png"/>
+                          
+        </ion-col>
+        <ion-col size="4"  size-sm style="text-align:center"  (click)="navigate('DIETICIAN')">
+              DIETICIAN <br />
+                <img src="../assets/icon/dietician.png"/>
+                           
+        </ion-col>
+      
+    </ion-row>
+
+    <ion-row  wrap responsive-sm align-items-center  >
+        <ion-col size="4"  size-sm style="text-align:center"  (click)="navigate('ORTHOPEDIC')">
+                ORTHOPEDIC  <br />
+                <img src="../assets/icon/ortho.png" />
+                           
+        </ion-col>
+        <ion-col size="4"  size-sm style="text-align:center"  (click)="navigate('Special O.P.D.-')">
+                Special O.P.D.- <br />
+                <img src="../assets/icon/speacial.png"/>
+                          
+        </ion-col>
+        <ion-col size="4"  size-sm style="text-align:center"  (click)="navigate('Homoeopathic')">
+              Homoeopathic <br />
+                <img src="../assets/icon/homeopathy.png"/>
+                           
+        </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+  <!-- <ion-card  *ngFor="let service of services" (click)="navigate(service.value)" > 
                     <img src="{{service.image}}" class="imageStyle"/>
                    
                     <ion-card-header>
@@ -25,7 +107,7 @@
                   <ion-card-content>
                     {{service.Description}}
                   </ion-card-content>
-  </ion-card>             
+  </ion-card>  -->            
 
 </ion-content>
 
