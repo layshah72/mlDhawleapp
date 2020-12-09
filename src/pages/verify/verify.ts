@@ -20,10 +20,9 @@ import { Events } from 'ionic-angular';
 export class VerifyPage {
 public otp : string = null;
 public password : string = null;
+public disable : string = null;
   constructor(public storage: Storage,public navCtrl: NavController, public navParams: NavParams,public http: HTTP,public events: Events) {
-  		this.storage.get('sessionId').then((val) => {
-				    alert(val);
-		});
+  		
   }
 
   ionViewDidLoad() {
@@ -33,7 +32,7 @@ public password : string = null;
   		let sessionId;
   		let mobileNum;
   		let fullName;
-
+  		this.disable = 'disabled';
   		this.storage.get('sessionId')
   		.then((val1) => {
   			alert(val1);
@@ -58,6 +57,7 @@ public password : string = null;
 				              	if(JSON.parse(data.data).StatusCd==0){
 				              		this.storage.set('userId', JSON.parse(data.data).userId);
 				              		this.events.publish('user:created', fullName, Date.now());
+				              		this.storage.set('isVerified', 'Y');
 				              		this.navCtrl.push(TabsPage);
 				              	}else{
 				              		alert(JSON.parse(data.data).StatusCd);

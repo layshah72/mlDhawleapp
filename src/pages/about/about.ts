@@ -15,6 +15,8 @@ export class AboutPage {
 
 
  public doctors : any = null;
+ public currentVer : string="0.1.0";
+public onlinecurrentVer : string=null;
  public doctorsSearched : any = null;
  public services:any=null;
 public i : number = null;
@@ -25,6 +27,23 @@ public special:any=null;
   constructor(public navCtrl: NavController, public http: HTTP,private navParams: NavParams) {
        
             this.doctors=[];
+            this.http.get('http://35.154.46.137:7001/version/1?hospitalId=1',{},{})
+            .then(data => {
+                 //alert(JSON.stringify(data.data)); 
+                this.onlinecurrentVer=data.data;
+                if(this.onlinecurrentVer.trim() !==this.currentVer.trim()){
+                   alert("Please update the Application. New version is available on play store"); 
+                }
+                
+
+              })
+              .catch(error => {
+
+               alert(error);
+                alert(error.error); 
+
+              });               
+
             this.http.get('http://35.154.46.137:7001/Department/View/1?hospitalId=1',{},{})
             .then(data => {
                 
@@ -38,7 +57,6 @@ public special:any=null;
                 alert(error.error); 
 
               });
-
               this.http.get('http://35.154.46.137:7001/Doctors/View/1?hospitalId=1',{},{})
             .then(data => {
                 
@@ -57,11 +75,12 @@ public special:any=null;
               });
 
 
-      /*this.http.get('/api/Department/View/1?hospitalId=1').map(res => res.json()).subscribe(data => {
+      /*this.http.get('/api/Doctors/View/1?hospitalId=1').map(res => res.json()).subscribe(data => {
            
-          this.services=data;
+          this.doctors=data;
     });*/
- /* 		this.services=[{
+    
+/*  		this.services=[{
           value:'',
           lable:'All'
         },
@@ -117,8 +136,8 @@ public special:any=null;
           value:'Homoeopathic',
           lable:'Homoeopathic'
         }
-      ];*/
-
+      ];
+*/
       /*this.doctors=[
         {
           "id":1,

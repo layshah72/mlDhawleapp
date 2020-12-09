@@ -3,6 +3,7 @@ import {IonicPage,NavController, NavParams, AlertController, ToastController, Me
 import {HomePage} from "../home/home";
 import { TabsPage } from '../tabs/tabs';
 import {RegisterPage} from "../register/register";
+import {ForgotPasswordPage} from "../forgot-password/forgot-password";
 import { HTTP } from '@ionic-native/http';
 import { Storage } from '@ionic/storage';
 import { Events } from 'ionic-angular';
@@ -39,9 +40,11 @@ export class LoginPage {
                alert(JSON.parse(data.data).userId);
                 this.storage.set('userId', JSON.parse(data.data).userId);
                 this.storage.set('fullName', JSON.parse(data.data).userName);
-                
+                this.storage.set('isDoctor', JSON.parse(data.data).isDoctor);
+                this.storage.set('doctorId', JSON.parse(data.data).doctorId);
+                this.storage.set('isVerified', 'Y');
                 this.navCtrl.push(TabsPage);
-                this.events.publish('user:created',  JSON.parse(data.data).userName, Date.now());
+                this.events.publish('user:created',  JSON.parse(data.data).userName,JSON.parse(data.data).isDoctor, Date.now());
 
               }else{
                 alert(JSON.stringify(JSON.parse(data.data).Message));
@@ -57,42 +60,8 @@ export class LoginPage {
             });
   }
 
-  forgotPass() {
-    let forgot = this.forgotCtrl.create({
-      title: 'Forgot Password?',
-      message: "Enter you email address to send a reset link password.",
-      inputs: [
-        {
-          name: 'email',
-          placeholder: 'Email',
-          type: 'email'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Send',
-          handler: data => {
-            console.log('Send clicked');
-            let toast = this.toastCtrl.create({
-              message: 'Email was sended successfully',
-              duration: 3000,
-              position: 'top',
-              cssClass: 'dark-trans',
-              closeButtonText: 'OK',
-              showCloseButton: true
-            });
-            toast.present();
-          }
-        }
-      ]
-    });
-    forgot.present();
+  forgotpassword() {
+    this.nav.setRoot(ForgotPasswordPage);
   }
 
 }

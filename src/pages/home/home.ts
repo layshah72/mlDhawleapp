@@ -3,6 +3,7 @@ import { NavController,PopoverController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { Http } from '@angular/http';
+import { HTTP } from '@ionic-native/http';
 import { AboutPage } from '../about/about';
 import { NewsPage } from '../news/news';
 import { MenuController } from 'ionic-angular';
@@ -13,6 +14,8 @@ import { Events } from 'ionic-angular';
 })
 export class HomePage {
 
+public currentVer : string='0.0.9';
+public onlinecurrentVer : string=null;
 public slide1 : string = null;	
 public slide2 : string = null;
 public slide3 : string = null;
@@ -22,11 +25,21 @@ public homePageData: any;
 public homePageContent:string;
 public services:any;
 
-  constructor(public navCtrl: NavController, public http: Http,public menu :MenuController,public events: Events, public popoverCtrl: PopoverController) {
+  constructor(public navCtrl: NavController, public http: HTTP,public menu :MenuController,public events: Events, public popoverCtrl: PopoverController) {
   
  
       this.menu.enable(true);
-      this.http.get('https://api.myjson.com/bins/1es4dw').map(res => res.json()).subscribe(data => {
+
+
+     
+      /*this.http.get('/api/version/1?hospitalId=1').map(res => res.json()).subscribe(data => {
+           alert(data);
+          this.onlinecurrentVer=data;
+          if(this.onlinecurrentVer!=this.currentVer){
+             alert("Please update the Application. New version is available on play store"); 
+          }
+    });*/
+ /*     this.http.get('https://api.myjson.com/bins/1es4dw').map(res => res.json()).subscribe(data => {
 		      this.homePageData = data;
               this.slide1=this.homePageData.slide1;
 
@@ -40,7 +53,7 @@ public services:any;
 
         this.homePageContent=this.homePageData.homePageContent;
     });
-    
+   */ 
     events.subscribe('pushData:communication', data => {
       
          this.navCtrl.push(NewsPage,data);
@@ -133,7 +146,7 @@ public services:any;
         }
       ];            
   		
-
+        
   		
   }
 

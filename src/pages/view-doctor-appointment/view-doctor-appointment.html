@@ -1,0 +1,40 @@
+<!--
+  Generated template for the ViewAppointmentsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>View Appointments</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list *ngFor="let appointment of appointments">
+      
+ 
+                  <ion-card class="ion-card-discover" > 
+                    <ion-card-header class="ion-title-discover">
+                      {{appointment.userId.name}}({{appointment.userId.num}})
+                    </ion-card-header>
+                    <ion-card-content class="ion-title-discover">
+                      <p>Appointment Date and Time: <br /></p>
+                      {{appointment.appointmentDate| date:'dd/MM/yyyy'}}-{{appointment.appointmentTime }}
+                      
+                      <p>Appointment Token:<br /></p>
+                    	{{appointment.appointmentToken}}
+                    </ion-card-content>
+
+
+
+
+                  </ion-card>
+
+ 
+       
+      </ion-list>
+</ion-content>

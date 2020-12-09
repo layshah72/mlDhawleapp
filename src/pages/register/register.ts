@@ -48,7 +48,7 @@ export class RegisterPage {
               	if(data.data.indexOf("User Already")>-1){
                   alert(data.data);
                 }else{
-                    this.storage.set('fullName', this.fullName);
+                  this.storage.set('fullName', this.fullName);
                   this.storage.set('mobileNum', this.number);
                   this.storage.set('sessionId', data.data);
             
@@ -71,7 +71,7 @@ export class RegisterPage {
               	this.storage.set('fullName', this.fullName);
 				this.storage.set('mobileNum', this.number);
 				this.storage.set('sessionId', data);
-				 
+				this.storage.set('isVerified', 'N'); 
 				
 				this.navCtrl.push(VerifyPage);   
             });

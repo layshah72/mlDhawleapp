@@ -13,6 +13,8 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AppointmentPage } from '../pages/appointment/appointment';
 import {ViewAppointmentsPage} from "../pages/view-appointments/view-appointments";
+import {ViewDoctorAppointmentPage} from "../pages/view-doctor-appointment/view-doctor-appointment";
+import {ForgotPasswordPage} from "../pages/forgot-password/forgot-password";
 import { ContactUsPage } from '../pages/contact-us/contact-us';
 import { RatingComponent} from '../components/rating/rating';
 import {LoginPage} from "../pages/login/login";
@@ -55,7 +57,9 @@ var firebaseConfig = {
     VerifyPage,
     AppointmentPage,
     ViewAppointmentsPage,
+    ViewDoctorAppointmentPage,
     NewsDtlsPage,
+    ForgotPasswordPage,
     RatingComponent
   ],
   imports: [
@@ -82,7 +86,9 @@ var firebaseConfig = {
     VerifyPage,
     AppointmentPage,
     ViewAppointmentsPage,
+    ViewDoctorAppointmentPage,
     NewsDtlsPage,
+    ForgotPasswordPage,
     RatingComponent
   ],
   providers: [

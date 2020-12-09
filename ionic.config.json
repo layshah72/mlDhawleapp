@@ -7,7 +7,7 @@
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "http://35.154.46.137:7001"
+      "proxyUrl": "http://localhost:7001"
     }
   ],
   "id": "57954061"

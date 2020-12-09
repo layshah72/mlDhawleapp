@@ -22,8 +22,8 @@
                       {{appointment.doctorId.name}}
                     </ion-card-header>
                     <ion-card-content class="ion-title-discover">
-                      <p>Appointment Booked for Period: <br /></p>
-                      {{appointment.appointmentValidFrom| date:'dd/MM/yyyy'}}-{{appointment.appointmentValidTo | date:'dd/MM/yyyy'}}
+                      <p>Appointment Date and Time: <br /></p>
+                      {{appointment.appointmentDate| date:'dd/MM/yyyy'}}-{{appointment.appointmentTime }}
                       
                       <p>Appointment Token:<br /></p>
                     	{{appointment.appointmentToken}}
